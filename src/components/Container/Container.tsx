@@ -16,7 +16,13 @@ function Container({ children, loading, error }: ContainerProps) {
       return <Loading />;
     }
     if (error) {
-      return <AlertMessage title={error.title} subTitle={error.subTitle} />;
+      return (
+        <AlertMessage
+          type="error"
+          title={error.title}
+          subTitle={error.subTitle}
+        />
+      );
     }
 
     return children;

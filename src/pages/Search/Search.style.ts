@@ -36,6 +36,12 @@ export const FormInput = styled.input`
   font-size: 18px;
   padding: 12px 16px;
   margin-top: 64px;
+  transition: all 0.2s;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 0 none;
+  }
 `;
 
 export const FormButton = styled.button`
@@ -44,10 +50,12 @@ export const FormButton = styled.button`
   border-radius: 10px;
   color: #ffffff;
   font-weight: bold;
-  background: #2f80ed;
+  background: ${(props) =>
+    props.disabled ? "var(--color-gray)" : "var(--color-primary)"};
   cursor: pointer;
   transition: 0.2s ease;
   margin-top: 42px;
+  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
 
   &:hover {
     opacity: 0.5;

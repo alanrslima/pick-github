@@ -15,7 +15,19 @@ function Search() {
   let navigate = useNavigate();
 
   const handleSearch = () => {
-    navigate(`user/${input}`);
+    if (validInput()) {
+      navigate(`user/${input}`);
+    }
+  };
+
+  const validInput = () => {
+    return !!input.trim().length;
+  };
+
+  const onKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
   };
 
   return (
@@ -27,10 +39,13 @@ function Search() {
         </FormSubTitle>
         <FormInput
           value={input}
+          onKeyUp={onKeyUp}
           placeholder="@username"
           onChange={(e) => setInput(e.target.value)}
         />
-        <FormButton onClick={handleSearch}>Pesquisar</FormButton>
+        <FormButton disabled={!validInput()} onClick={handleSearch}>
+          Pesquisar
+        </FormButton>
       </Form>
     </Container>
   );

@@ -28,20 +28,6 @@ export const Title = styled.h1`
   color: var(--color-white);
 `;
 
-export const WrapperItem = styled.div`
-  display: flex;
-  flex-direction: row;
-  color: var(--color-white);
-  margin-top: 6px;
-  font-size: 13px;
-  align-items: center;
-`;
-
-export const ItemDescription = styled.div`
-  margin-left: 6px;
-  font-weight: 500;
-`;
-
 export const Description = styled.p`
   color: var(--color-light-gray);
   margin-top: 12px;
