@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
 
   @media screen and (max-width: 700px) {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -16,7 +17,6 @@ export const ProfileImage = styled.img`
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  background: red;
   margin-right: 16px;
 `;
 

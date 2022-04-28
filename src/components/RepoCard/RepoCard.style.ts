@@ -6,9 +6,19 @@ export const Wrapper = styled.div`
   padding: 24px;
   border-radius: 10px;
   flex-direction: row;
-  max-width: 30%;
+  width: 30%;
   flex-direction: column;
   margin-top: 24px;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 export const Header = styled.div`
@@ -20,6 +30,7 @@ export const Header = styled.div`
 
 export const Title = styled.h3`
   color: var(--color-primary);
+  font-size: 18px;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;

@@ -1,3 +1,4 @@
+import { RepositoryProps } from "../types/repository";
 import { UserProps } from "../types/user";
 import api from "./api.service";
 
@@ -10,7 +11,7 @@ export const UserService = {
         .catch((err) => reject(err));
     });
   },
-  getRepos: (username: string) => {
+  getRepos: (username: string): Promise<RepositoryProps[]> => {
     return new Promise((resolve, reject) => {
       api
         .get(`users/${username}/repos`)

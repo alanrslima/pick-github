@@ -1,36 +1,25 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Container from "../../components/Container/Container";
 import Profile from "../../components/Profile/Profile";
 import RepoCard from "../../components/RepoCard/RepoCard";
-import { UserService } from "../../services/user.service";
-import { Container, Content, WrapperRepos, SectionHeader } from "./User.style";
+import { useUser } from "../../hooks/useUser";
+import { Content, WrapperRepos, SectionHeader } from "./User.style";
 
 function User() {
   let { username } = useParams();
 
-  const getUserData = async (user: string) => {
-    try {
-      const userData = await UserService.get(user);
-      const reposData = await UserService.getRepos(user);
-    } catch (error) {}
-  };
-
-  useEffect(() => {
-    username && getUserData(username);
-  }, [username]);
+  const { user, repos, loading, error } = useUser(username!);
 
   return (
     <Container>
       <Content>
-        <Profile />
-
+        {user && <Profile user={user} />}
         <SectionHeader>Repositórios</SectionHeader>
         <WrapperRepos>
-          <RepoCard />
-          <RepoCard />
-          <RepoCard />
-          <RepoCard />
-          <RepoCard />
+          {repos.map((repo) => (
+            <RepoCard key={repo.id} repo={repo} />
+          ))}
         </WrapperRepos>
       </Content>
     </Container>

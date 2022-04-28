@@ -4,40 +4,35 @@ import {
   ProfileImage,
   WrapperInfo,
   Title,
-  WrapperItem,
-  ItemDescription,
   Description,
 } from "./Profile.style";
-import { FaAt, FaBuilding, FaLink, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaAt,
+  FaBuilding,
+  FaLink,
+  FaMapMarkerAlt,
+  FaTwitter,
+} from "react-icons/fa";
+import { UserProps } from "../../types/user";
+import LabelItem from "../LabelItem/LabelItem";
 
-function Profile() {
+interface ProfileProps {
+  user: UserProps;
+}
+function Profile({ user }: ProfileProps) {
   return (
     <Wrapper>
-      <ProfileImage src="https://avatars.githubusercontent.com/u/31439832?v=4"></ProfileImage>
+      <ProfileImage alt="Imagem de perfil" src={user.avatar_url}></ProfileImage>
       <WrapperInfo>
-        <Title>John William • Desenvolvedor Senior</Title>
-        <WrapperItem>
-          <FaAt />
-          <ItemDescription>john_will</ItemDescription>
-        </WrapperItem>
-        <WrapperItem>
-          <FaBuilding />
-          <ItemDescription>Google Company</ItemDescription>
-        </WrapperItem>
-        <WrapperItem>
-          <FaLink />
-          <ItemDescription>www.google.com.br</ItemDescription>
-        </WrapperItem>
-        <WrapperItem>
-          <FaMapMarkerAlt />
-          <ItemDescription>Los Angeles</ItemDescription>
-        </WrapperItem>
-        <Description>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste
-          laudantium placeat non. Impedit reiciendis maxime est, tenetur porro
-          asperiores dolorem aliquam ab nobis quibusdam, odit cupiditate, dolore
-          deleniti nam illo!
-        </Description>
+        <Title>{`${user.name}`}</Title>
+
+        <LabelItem Icon={() => <FaAt />} label={user.login} />
+        <LabelItem Icon={() => <FaBuilding />} label={user.company} />
+        <LabelItem Icon={() => <FaLink />} label={user.blog} />
+        <LabelItem Icon={() => <FaMapMarkerAlt />} label={user.location} />
+        <LabelItem Icon={() => <FaTwitter />} label={user.twitter_username} />
+
+        <Description>{user.bio}</Description>
       </WrapperInfo>
     </Wrapper>
   );

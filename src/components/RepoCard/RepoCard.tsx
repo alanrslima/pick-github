@@ -1,20 +1,19 @@
 import React from "react";
+import { RepositoryProps } from "../../types/repository";
 import { Wrapper, Header, Title, Tag, Description } from "./RepoCard.style";
 
-function RepoCard() {
+interface RepoCardProps {
+  repo: RepositoryProps;
+}
+function RepoCard(props: RepoCardProps) {
   return (
     <Wrapper>
       <Header>
-        <Title>Nome do repo</Title>
-        <Tag>Público</Tag>
+        <Title>{props.repo.name}</Title>
+        <Tag>{props.repo.visibility}</Tag>
       </Header>
-      <Description>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi quaerat
-        iusto voluptates aliquam corrupti cumque. Nostrum, sunt. Aliquid
-        incidunt vitae iusto possimus, quo voluptas, consequuntur sapiente
-        deleniti accusamus, natus perferendis?
-      </Description>
-      <Tag>Typescript</Tag>
+      <Description>{props.repo.description}</Description>
+      <Tag>{props.repo.language}</Tag>
     </Wrapper>
   );
 }
