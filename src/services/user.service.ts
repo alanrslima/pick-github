@@ -3,7 +3,7 @@ import api from "./api.service";
 
 export const UserService = {
   get: (username: string): Promise<UserProps> => {
-    return new Promise((reject, resolve) => {
+    return new Promise((resolve, reject) => {
       api
         .get(`users/${username}`)
         .then(({ data }) => resolve(data))
@@ -11,7 +11,7 @@ export const UserService = {
     });
   },
   getRepos: (username: string) => {
-    return new Promise((reject, resolve) => {
+    return new Promise((resolve, reject) => {
       api
         .get(`users/${username}/repos`)
         .then(({ data }) => resolve(data))

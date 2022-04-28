@@ -19,17 +19,22 @@ export default createGlobalStyle`
     font-family: 'Montserrat', -apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
   }
   :root {
-    --color-primary: #F5F5F5;
-    --color-black: #333;
+    --color-primary: #2F80ED;
+    --color-black: #000;
     --color-white: #FFF;
+    --color-light-gray: #aaa;
     --color-gray: #666;
     --color-blue: #3483fa;
     --color-green: #00a650;
 
-    --color-header: #FFF159;
+    --color-background: #01050B;
+    --color-surface: #0F1216;
+
     --color-search-placeholder: #AAAAAA;
     --color-border: #ddd;
 
     --panel-shadow: 0 1px 3px 0 rgba(0,0,0,.3);
+
+
   }
 `;
