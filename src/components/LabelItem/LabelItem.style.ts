@@ -9,7 +9,13 @@ export const WrapperItem = styled.div`
   align-items: center;
 `;
 
-export const ItemDescription = styled.div`
+export const ItemDescription = styled.label`
   margin-left: 6px;
   font-weight: 500;
+`;
+
+export const ItemLink = styled.a`
+  margin-left: 6px;
+  font-weight: 500;
+  color: var(--color-primary);
 `;

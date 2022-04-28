@@ -28,7 +28,7 @@ function Profile({ user }: ProfileProps) {
 
         <LabelItem Icon={() => <FaAt />} label={user.login} />
         <LabelItem Icon={() => <FaBuilding />} label={user.company} />
-        <LabelItem Icon={() => <FaLink />} label={user.blog} />
+        <LabelItem link Icon={() => <FaLink />} label={user.blog} />
         <LabelItem Icon={() => <FaMapMarkerAlt />} label={user.location} />
         <LabelItem Icon={() => <FaTwitter />} label={user.twitter_username} />
 

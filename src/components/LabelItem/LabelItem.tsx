@@ -1,16 +1,23 @@
 import React, { FunctionComponent } from "react";
-import { WrapperItem, ItemDescription } from "./LabelItem.style";
+import { WrapperItem, ItemDescription, ItemLink } from "./LabelItem.style";
 
 interface LabelItemProps {
   Icon: FunctionComponent;
   label?: string;
+  link?: boolean;
 }
-function LabelItem({ Icon, label }: LabelItemProps) {
+function LabelItem({ Icon, label, link }: LabelItemProps) {
   if (!label || !label?.length) return null;
   return (
     <WrapperItem>
       <Icon />
-      <ItemDescription>{label}</ItemDescription>
+      {link ? (
+        <ItemLink target={"_blank"} href={label}>
+          {label}
+        </ItemLink>
+      ) : (
+        <ItemDescription>{label}</ItemDescription>
+      )}
     </WrapperItem>
   );
 }

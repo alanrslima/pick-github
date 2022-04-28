@@ -1,14 +1,28 @@
 import React from "react";
+import { ErrorProps } from "../../types/error";
+import AlertMessage from "../AlertMessage/AlertMessage";
+import Loading from "../Loading/Loading";
 
 import { Wrapper } from "./Container.style";
 
 interface ContainerProps {
   children: JSX.Element;
   loading?: boolean;
-  error?: string;
+  error?: ErrorProps;
 }
-const Container = ({ children }: ContainerProps) => {
-  return <Wrapper>{children}</Wrapper>;
-};
+function Container({ children, loading, error }: ContainerProps) {
+  const renderContent = () => {
+    if (loading) {
+      return <Loading />;
+    }
+    if (error) {
+      return <AlertMessage title={error.title} subTitle={error.subTitle} />;
+    }
+
+    return children;
+  };
+
+  return <Wrapper>{renderContent()}</Wrapper>;
+}
 
 export default Container;

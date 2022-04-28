@@ -12,7 +12,7 @@ function User() {
   const { user, repos, loading, error } = useUser(username!);
 
   return (
-    <Container>
+    <Container loading={loading} error={error}>
       <Content>
         {user && <Profile user={user} />}
         <SectionHeader>Repositórios</SectionHeader>
