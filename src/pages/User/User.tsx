@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import AlertMessage from "../../components/AlertMessage/AlertMessage";
 import Container from "../../components/Container/Container";
@@ -10,7 +10,7 @@ import { Content, WrapperRepos, SectionHeader } from "./User.style";
 function User() {
   let { username } = useParams();
 
-  const { user, repos, loading, error } = useUser(username!);
+  const { user, repos, loading, error } = useUser(username);
 
   const renderRepos = () => {
     if (!repos.length) {

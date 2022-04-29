@@ -4,7 +4,7 @@ import { ErrorProps } from "../types/error";
 import { RepositoryProps } from "../types/repository";
 import { UserProps } from "../types/user";
 
-export const useUser = (username: string) => {
+export const useUser = (username?: string) => {
   const [user, setUser] = useState<UserProps>();
   const [repos, setRepos] = useState<RepositoryProps[]>([]);
   const [loading, setLoading] = useState(false);
@@ -35,7 +35,9 @@ export const useUser = (username: string) => {
   };
 
   useEffect(() => {
-    username && getUserData(username);
+    if (username && username.length) {
+      username && getUserData(username);
+    }
   }, [username]);
 
   return { user, repos, loading, error };
