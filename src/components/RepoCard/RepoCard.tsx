@@ -1,19 +1,37 @@
 import React from "react";
 import { RepositoryProps } from "../../types/repository";
-import { Wrapper, Header, Title, Tag, Description } from "./RepoCard.style";
+import {
+  Wrapper,
+  Header,
+  Title,
+  Tag,
+  Description,
+  Footer,
+  StarIcon,
+  WrapperStarIcon,
+  StarLabel,
+} from "./RepoCard.style";
 
 interface RepoCardProps {
   repo: RepositoryProps;
 }
-function RepoCard(props: RepoCardProps) {
+function RepoCard({ repo }: RepoCardProps) {
   return (
     <Wrapper>
       <Header>
-        <Title>{props.repo.name}</Title>
-        <Tag>{props.repo.visibility}</Tag>
+        <Title>{repo.name}</Title>
+        <Tag>{repo.visibility}</Tag>
       </Header>
-      <Description>{props.repo.description}</Description>
-      <Tag>{props.repo.language}</Tag>
+      <Description>{repo.description}</Description>
+      <Footer>
+        <Tag>{repo.language}</Tag>
+        {repo.stargazers_count ? (
+          <WrapperStarIcon>
+            <StarIcon />
+            <StarLabel>{repo.stargazers_count}</StarLabel>
+          </WrapperStarIcon>
+        ) : null}
+      </Footer>
     </Wrapper>
   );
 }

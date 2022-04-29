@@ -17,6 +17,11 @@ export const useUser = (username: string) => {
       const userData = await UserService.get(user);
       setUser(userData);
       const reposData = await UserService.getRepos(user);
+      reposData.sort((a, b) => {
+        if (a.stargazers_count > b.stargazers_count) return -1;
+        if (a.stargazers_count < b.stargazers_count) return 1;
+        return 0;
+      });
       setRepos(reposData);
     } catch (err) {
       setError({

@@ -12,7 +12,9 @@ import {
   FaLink,
   FaMapMarkerAlt,
   FaTwitter,
+  FaUsers,
 } from "react-icons/fa";
+import { MdMail } from "react-icons/md";
 import { UserProps } from "../../types/user";
 import LabelItem from "../LabelItem/LabelItem";
 
@@ -26,8 +28,13 @@ function Profile({ user }: ProfileProps) {
       <WrapperInfo>
         <Title>{`${user.name}`}</Title>
 
+        <LabelItem
+          Icon={() => <FaUsers />}
+          label={`${user.followers} Seguidores • ${user.following} Seguindo`}
+        />
         <LabelItem Icon={() => <FaAt />} label={user.login} />
         <LabelItem Icon={() => <FaBuilding />} label={user.company} />
+        <LabelItem Icon={() => <MdMail />} label={user.email} />
         <LabelItem link Icon={() => <FaLink />} label={user.blog} />
         <LabelItem Icon={() => <FaMapMarkerAlt />} label={user.location} />
         <LabelItem Icon={() => <FaTwitter />} label={user.twitter_username} />

@@ -69,7 +69,7 @@ export interface RepositoryProps {
   license?: LicenseProps;
   allow_forking: boolean;
   is_template: boolean;
-  topics: [];
+  topics: string[];
   visibility: string;
   forks: number;
   open_issues: number;

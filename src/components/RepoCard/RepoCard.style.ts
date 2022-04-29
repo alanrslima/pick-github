@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AiFillStar } from "react-icons/ai";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -51,10 +52,34 @@ export const Tag = styled.span`
 export const Description = styled.p`
   font-size: 11px;
   color: var(--color-light-gray);
+  flex: 1;
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+export const Footer = styled.div`
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const StarIcon = styled(AiFillStar).attrs(() => ({
+  size: 18,
+}))``;
+
+export const WrapperStarIcon = styled.div`
+  color: var(--color-gray);
+  display: flex;
+  align-items: center;
+`;
+
+export const StarLabel = styled.label`
+  font-size: 12px;
+  margin-left: 4px;
+  font-weight: bold;
 `;

@@ -21,7 +21,7 @@ export const ProfileImage = styled.img`
 `;
 
 export const WrapperInfo = styled.div`
-  flex: 1;
+  width: 100%;
 `;
 
 export const Title = styled.h1`
