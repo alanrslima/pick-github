@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup
+
+- [Node JS](https://nodejs.org/en/download/)
+
+## Env configuration
+
+Before run the project, please create a `.env` file and include the informations listed in `.env.example`. This step is necessary to get the env configuration for the base api URL, for example.
+
 ## Available Scripts
 
 In the project directory, you can run:
