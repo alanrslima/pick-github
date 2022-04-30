@@ -27,7 +27,7 @@ export const useUser = (username?: string) => {
       setError({
         title: `Ops, o usuário @${user} não foi encontrado!`,
         subTitle:
-          "Provavelmente este nome de usuário não está cadastrado no GitHub. Efetue uma nova busca clicando Aqui!",
+          "Provavelmente este nome de usuário não está cadastrado no GitHub.",
       });
     } finally {
       setLoading(false);

@@ -3,7 +3,7 @@ import { Wrapper, Ring } from "./Loading.style";
 
 function Loading() {
   return (
-    <Wrapper>
+    <Wrapper data-testid="loading-component">
       <Ring />
     </Wrapper>
   );

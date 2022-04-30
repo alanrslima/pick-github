@@ -21,13 +21,13 @@ function AlertMessage({
   const renderIcon = () => {
     switch (type) {
       case "information":
-        return <RiInformationFill size={100} />;
+        return <RiInformationFill data-testid="information-icon" size={100} />;
       case "success":
-        return <RiCheckFill size={100} />;
+        return <RiCheckFill data-testid="success-icon" size={100} />;
       case "error":
-        return <RiCloseCircleFill size={100} />;
+        return <RiCloseCircleFill data-testid="error-icon" size={100} />;
       default:
-        return <RiInformationFill size={100} />;
+        return <RiInformationFill data-testid="information-icon" size={100} />;
     }
   };
 
