@@ -4,32 +4,32 @@ import { screen } from "@testing-library/dom";
 
 describe("Container Component", () => {
   it("should render a children component", () => {
-    const { getByText } = render(
+    render(
       <Container>
         <h1>Hello</h1>
       </Container>
     );
-    expect(getByText("Hello")).toBeInTheDocument();
+    expect(screen.getByText("Hello")).toBeInTheDocument();
   });
 
   it("should render a loading content", () => {
-    const { queryByText } = render(
+    render(
       <Container loading={true}>
         <h1>Hello</h1>
       </Container>
     );
     expect(screen.getByTestId("loading-component")).toBeInTheDocument();
-    expect(queryByText("Hello")).not.toBeInTheDocument();
+    expect(screen.queryByText("Hello")).not.toBeInTheDocument();
   });
 
   it("should render a error message content", () => {
-    const { queryByText, getByText } = render(
+    render(
       <Container error={{ title: "title_error", subTitle: "subtitle_error" }}>
         <h1>Hello</h1>
       </Container>
     );
-    expect(getByText("title_error")).toBeInTheDocument();
-    expect(getByText("subtitle_error")).toBeInTheDocument();
-    expect(queryByText("Hello")).not.toBeInTheDocument();
+    expect(screen.getByText("title_error")).toBeInTheDocument();
+    expect(screen.getByText("subtitle_error")).toBeInTheDocument();
+    expect(screen.queryByText("Hello")).not.toBeInTheDocument();
   });
 });

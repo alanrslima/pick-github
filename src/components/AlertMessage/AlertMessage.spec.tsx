@@ -13,4 +13,22 @@ describe("AlertMessage Component", () => {
     expect(screen.getByText("title")).toBeInTheDocument();
     expect(screen.getByTestId("information-icon")).toBeInTheDocument();
   });
+
+  it("should render a success icon", () => {
+    render(<AlertMessage title="title" type="success" />);
+    expect(screen.getByText("title")).toBeInTheDocument();
+    expect(screen.getByTestId("success-icon")).toBeInTheDocument();
+  });
+
+  it("should render a error icon", () => {
+    render(<AlertMessage title="title" type="error" />);
+    expect(screen.getByText("title")).toBeInTheDocument();
+    expect(screen.getByTestId("error-icon")).toBeInTheDocument();
+  });
+
+  it("should render a information icon", () => {
+    render(<AlertMessage title="title" type="information" />);
+    expect(screen.getByText("title")).toBeInTheDocument();
+    expect(screen.getByTestId("information-icon")).toBeInTheDocument();
+  });
 });
